@@ -158,7 +158,7 @@ export const StepperItem: FC<StepperItemProps> = ({
             color={colorScheme === "dark" ? "white" : colors["slate-500"]}
           />
         </Pressable>
-        <View className={`${fractionDigits > 0 ? "w-14" : "w-8"} self-center px-2`}>
+        <View className="w-14 self-center px-2">
           <Text
             className="text-center font-breathly-mono dark:text-white"
             style={{ fontVariant: ["tabular-nums"] }}

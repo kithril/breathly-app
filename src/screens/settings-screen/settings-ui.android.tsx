@@ -184,7 +184,7 @@ const StepperItem: FC<StepperItemProps> = ({
         >
           <MaterialCommunityIcons name="minus" size={16} color="white" />
         </Pressable>
-        <View className={`${fractionDigits > 0 ? "w-14" : "w-8"} self-center px-2`}>
+        <View className="w-14 self-center px-2">
           <Text
             className="text-center font-breathly-mono font-semibold dark:text-white"
             numberOfLines={1}
