@@ -14,7 +14,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "icon": "./assets/ios-icon.png",
@@ -66,7 +68,9 @@
           "behavior": "overlay-swipe",
           "backgroundColor": "#00000080"
         }
-      ]
+      ],
+      "expo-asset",
+      "expo-font"
     ]
   }
 }
