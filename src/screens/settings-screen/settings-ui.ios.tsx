@@ -79,7 +79,7 @@ export const LinkItem: FC<LinkItemProps> = ({ value, onPress, ...baseProps }) =>
           <Text className="text-slate-500">{value}</Text>
           <Ionicons
             style={{ padding: 4 }}
-            name={"ios-chevron-forward"}
+            name="chevron-forward"
             size={18}
             color={colors["slate-500"]}
           />
@@ -155,7 +155,7 @@ export const StepperItem: FC<StepperItemProps> = ({
           disabled={decreaseDisabled}
         >
           <Ionicons
-            name={"ios-remove"}
+            name="remove"
             size={18}
             color={colorScheme === "dark" ? "white" : colors["slate-500"]}
           />
@@ -179,7 +179,7 @@ export const StepperItem: FC<StepperItemProps> = ({
           disabled={increaseDisabled}
         >
           <Ionicons
-            name={"ios-add"}
+            name="add"
             size={18}
             color={colorScheme === "dark" ? "white" : colors["slate-500"]}
           />
@@ -211,7 +211,7 @@ export const RadioButtonItem: FC<RadioButtonItemProps> = ({
         </View>
         <View className="w-6 grow items-end">
           {selected && (
-            <Ionicons name={"ios-checkmark-sharp"} size={18} color={colors["blue-500"]} />
+            <Ionicons name="checkmark-sharp" size={18} color={colors["blue-500"]} />
           )}
         </View>
       </Pressable>

@@ -81,7 +81,7 @@ export const ExerciseScreen: FC<NativeStackScreenProps<RootStackParamList, "Exer
           className="h-16 w-16 items-center justify-center rounded-full border-2 border-gray-300 text-center"
           onPress={navigation.goBack}
         >
-          <Ionicons name="ios-close" size={22} color="lightgray" />
+          <Ionicons name="close" size={22} color="lightgray" />
         </Pressable>
       </View>
     </View>

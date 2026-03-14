@@ -86,7 +86,8 @@ const AnimatedSplashScreen: React.FC<PropsWithChildren> = ({ children }) => {
           style={[
             StyleSheet.absoluteFill,
             {
-              backgroundColor: Constants.manifest.splash.backgroundColor,
+              backgroundColor:
+                Constants.expoConfig?.splash?.backgroundColor ?? "#ffffff",
               opacity: animation,
             },
           ]}
@@ -95,7 +96,7 @@ const AnimatedSplashScreen: React.FC<PropsWithChildren> = ({ children }) => {
             style={{
               width: "100%",
               height: "100%",
-              resizeMode: Constants.manifest.splash.resizeMode || "contain",
+              resizeMode: Constants.expoConfig?.splash?.resizeMode ?? "contain",
             }}
             source={splashImageAsset}
             onLoadEnd={onImageLoaded}

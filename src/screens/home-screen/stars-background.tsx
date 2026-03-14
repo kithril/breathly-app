@@ -1,16 +1,24 @@
-import MaskedView from "@react-native-masked-view/masked-view";
+import MaskedViewOrig from "@react-native-masked-view/masked-view";
 import { LinearGradient } from "expo-linear-gradient";
 import ms from "ms";
-import { styled } from "nativewind";
 import React, { FC, useEffect, useRef } from "react";
-import { Animated, Easing, Image } from "react-native";
+import {
+  Animated,
+  Easing,
+  Image,
+  StyleProp,
+  ViewStyle,
+} from "react-native";
 import { images } from "@breathly/assets/images";
 import { widestDeviceDimension } from "@breathly/design/metrics";
 import { animate } from "@breathly/utils/animate";
 
 const BACKGROUND_ANIM_DURATION = ms("2 min");
 
-const StyledMaskedView = styled(MaskedView);
+// RN 0.73+ typings are incompatible with MaskedView's export; cast to valid JSX component.
+const MaskedView = MaskedViewOrig as unknown as React.ComponentType<
+  React.PropsWithChildren<{ style?: object; maskElement: React.ReactNode }>
+>;
 
 interface Props {
   fadeIn?: boolean;
@@ -69,10 +77,16 @@ export const StarsBackground: FC<Props> = ({
     }
   };
 
+  // Animated.View accepts animated transform; RN 0.73 ViewStyle typings don't include AnimatedInterpolation.
+  const containerStyle = [
+    { height: size * 2, width: size * 2 },
+    { transform: backgroundTransform },
+  ] as StyleProp<ViewStyle>;
+
   return (
     <Animated.View className="absolute w-full" style={{ height: size, opacity: fadeInAnimValue }}>
-      <StyledMaskedView
-        className="flex-1"
+      <MaskedView
+        style={{ flex: 1 }}
         maskElement={
           <LinearGradient
             colors={["black", "transparent"]}
@@ -82,9 +96,7 @@ export const StarsBackground: FC<Props> = ({
           />
         }
       >
-        <Animated.View
-          style={[{ height: size * 2, width: size * 2 }, { transform: backgroundTransform }]}
-        >
+        <Animated.View style={containerStyle}>
           <Image
             className="absolute top-0 z-10 h-full w-full"
             source={images.starsBackgroundHorizontal}
@@ -92,7 +104,7 @@ export const StarsBackground: FC<Props> = ({
             onLoad={handleLoad}
           />
         </Animated.View>
-      </StyledMaskedView>
+      </MaskedView>
     </Animated.View>
   );
 };

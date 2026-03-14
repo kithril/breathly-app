@@ -1,14 +1,16 @@
-import MaskedView from "@react-native-masked-view/masked-view";
+import MaskedViewOrig from "@react-native-masked-view/masked-view";
 import { LinearGradient, LinearGradientPoint } from "expo-linear-gradient";
 import ms from "ms";
-import { styled } from "nativewind";
 import React, { FC, useEffect, useRef } from "react";
 import { Animated, View } from "react-native";
 import { colors } from "@breathly/design/colors";
 
 const PLANET_ANIM_DURATION = ms("8 sec");
 
-const StyledMaskedView = styled(MaskedView);
+// RN 0.73+ typings are incompatible with MaskedView's export; cast to valid JSX component.
+const MaskedView = MaskedViewOrig as unknown as React.ComponentType<
+  React.PropsWithChildren<{ style?: object; maskElement: React.ReactNode }>
+>;
 
 export const PlanetsBackground: FC = () => {
   return (
@@ -115,9 +117,8 @@ export const Planet: FC<PlanetProps> = ({
         ],
       }}
     >
-      <StyledMaskedView
+      <MaskedView
         style={{ width: size, height: size }}
-        className="transparent"
         maskElement={
           <View
             className="transparent"
@@ -138,7 +139,7 @@ export const Planet: FC<PlanetProps> = ({
         }
       >
         <View className="h-full w-full rounded-full" style={{ backgroundColor: color }} />
-      </StyledMaskedView>
+      </MaskedView>
     </Animated.View>
   );
 };
