@@ -19,6 +19,7 @@ android/keystores
 credentials.json
 # TODO: remove this once we have a proper iOS build
 ios/
+android/
 
 # Build output
 *.ipa
