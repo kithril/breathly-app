@@ -10,7 +10,7 @@ export type GuidedBreathingStep = "breatheIn" | "breatheOut" | "hold";
 
 type GuidedBreathingAudioSounds = {
   [key in GuidedBreathingMode]: {
-    [key in GuidedBreathingStep]: any;
+    [key in GuidedBreathingStep]: number; // Metro asset handle
   };
 };
 

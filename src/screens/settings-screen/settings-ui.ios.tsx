@@ -37,6 +37,8 @@ const Section: React.FC<PropsWithChildren<SectionProps>> = ({ label, children })
 export interface BaseItemProps {
   label?: string;
   secondaryLabel?: string;
+  /** Ionicons name – union is large, avoid importing for one prop */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   iconName?: any;
   iconBackgroundColor?: string;
   style?: ViewStyle;

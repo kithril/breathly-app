@@ -1,6 +1,11 @@
 {
   "overrides": [
     {
+      "files": ["*.js"],
+      "env": { "es2021": true },
+      "parserOptions": { "ecmaVersion": 2021 }
+    },
+    {
       "files": ["*.ts", "*.tsx"],
       "env": {
         "browser": true,
